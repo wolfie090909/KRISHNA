@@ -3,127 +3,980 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Krishna Mobiles: Premium refurbished Apple and Samsung phones from Dubai. Worldwide shipping, certified quality, sustainable tech at unbeatable prices. Established 2021 in DAFZA.">
-    <meta name="keywords" content="refurbished mobiles Dubai, used Apple phones wholesale, certified pre-owned smartphones UAE, sustainable electronics worldwide, Krishna Mobiles DAFZA">
-    <title>Krishna Mobiles - Premium Refurbished Mobiles Worldwide</title>
-    <!-- SEO Schema Markup for Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Krishna Mobiles FZCO",
-      "url": "https://krishnamobiles.co",
-      "logo": "https://krishnamobiles.co/logo.png",
-      "foundingDate": "2021",
-      "founders": [{"@type": "Person", "name": "Kundan Yadav"}],
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "7 WA-3002, Dubai Airport Freezone",
-        "addressLocality": "Dubai",
-        "addressRegion": "Dubai",
-        "postalCode": "",
-        "addressCountry": "AE"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+971-XXXX-XXXX",
-        "contactType": "Customer Service"
-      }
-    }
-    </script>
+    <meta name="description" content="AtlasPay is a PayPal-class global payouts platform concept focused on speed, trust, compliance, and simple user experiences.">
+    <meta name="keywords" content="global payouts app, business payouts, freelancer payments, secure wallet, double-entry ledger, KYC, AML, payment compliance">
+    <title>AtlasPay - Global Payouts Built for Speed and Trust</title>
     <style>
-        /* Global Styles - Modern, Clean, Trustworthy Palette: Blues for Reliability, Gold Accents for Premium */
-        body { font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; color: #333; background: #f9f9f9; }
-        header { background: linear-gradient(135deg, #0056a0, #003366); color: white; padding: 20px; text-align: center; }
-        nav { background: #003366; padding: 10px; }
-        nav ul { list-style: none; margin: 0; padding: 0; display: flex; justify-content: center; }
-        nav li { margin: 0 15px; }
-        nav a { color: white; text-decoration: none; font-weight: bold; }
-        .hero { background: url('https://via.placeholder.com/1920x600?text=Hero+Image+-+Dubai+Skyline+with+Mobiles') no-repeat center/cover; height: 600px; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero h1 { font-size: 3em; }
-        section { padding: 50px 20px; max-width: 1200px; margin: auto; }
-        .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .product-card { background: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 20px; text-align: center; }
-        .product-card img { max-width: 100%; border-radius: 10px; }
-        form { display: grid; gap: 10px; max-width: 600px; margin: auto; }
-        button { background: #ffd700; color: #003366; border: none; padding: 10px; font-weight: bold; cursor: pointer; }
-        footer { background: #003366; color: white; text-align: center; padding: 20px; }
-        /* Responsiveness */
-        @media (max-width: 768px) { .hero h1 { font-size: 2em; } nav ul { flex-direction: column; } }
-        /* JS-Enabled Interactivity */
-        .testimonial { opacity: 0; transition: opacity 1s; }
-        .show { opacity: 1; }
+        :root {
+            color-scheme: light;
+            --bg: #f5f8ff;
+            --bg-soft: #eaf1ff;
+            --card: #ffffff;
+            --ink: #102033;
+            --muted: #5f6f83;
+            --primary: #1157ff;
+            --primary-dark: #0734a8;
+            --accent: #00b894;
+            --warning: #ffb020;
+            --border: #d9e2f2;
+            --shadow: 0 24px 70px rgba(16, 32, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--bg);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: 16px;
+            z-index: 10;
+            padding: 12px 16px;
+            color: #ffffff;
+            background: var(--primary-dark);
+            border-radius: 10px;
+        }
+
+        .skip-link:focus {
+            left: 16px;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background: rgba(255, 255, 255, 0.92);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(16px);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 16px 0;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            display: grid;
+            width: 38px;
+            height: 38px;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            place-items: center;
+            box-shadow: 0 10px 30px rgba(17, 87, 255, 0.25);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links a:focus,
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 46px;
+            padding: 12px 18px;
+            color: #ffffff;
+            background: var(--primary);
+            border: 0;
+            border-radius: 999px;
+            box-shadow: 0 12px 28px rgba(17, 87, 255, 0.24);
+            cursor: pointer;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .button:hover,
+        .button:focus {
+            background: var(--primary-dark);
+        }
+
+        .button.secondary {
+            color: var(--primary-dark);
+            background: #ffffff;
+            border: 1px solid var(--border);
+            box-shadow: none;
+        }
+
+        main {
+            overflow: hidden;
+        }
+
+        section {
+            width: min(1180px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            gap: 44px;
+            align-items: center;
+            min-height: 720px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: fit-content;
+            padding: 8px 12px;
+            color: var(--primary-dark);
+            background: #e9efff;
+            border: 1px solid #cbd8ff;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin: 0;
+            line-height: 1.06;
+            letter-spacing: -0.045em;
+        }
+
+        h1 {
+            max-width: 760px;
+            margin-top: 18px;
+            font-size: clamp(3rem, 8vw, 6.4rem);
+        }
+
+        h2 {
+            font-size: clamp(2.1rem, 5vw, 4.4rem);
+        }
+
+        h3 {
+            font-size: 1.35rem;
+        }
+
+        .lead {
+            max-width: 690px;
+            margin: 22px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.08rem, 2vw, 1.28rem);
+        }
+
+        .hero-actions,
+        .cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .proof-row {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .proof {
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.78);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+        }
+
+        .proof strong {
+            display: block;
+            font-size: 1.65rem;
+            letter-spacing: -0.04em;
+        }
+
+        .proof span {
+            color: var(--muted);
+            font-size: 0.92rem;
+            font-weight: 700;
+        }
+
+        .phone-shell {
+            position: relative;
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 18px;
+            background: #071121;
+            border-radius: 42px;
+            box-shadow: var(--shadow);
+        }
+
+        .phone {
+            overflow: hidden;
+            min-height: 620px;
+            padding: 22px;
+            background: linear-gradient(180deg, #ffffff 0%, #f6f9ff 100%);
+            border-radius: 30px;
+        }
+
+        .phone-top,
+        .phone-row,
+        .receipt-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .avatar-group {
+            display: flex;
+        }
+
+        .avatar {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            margin-left: -8px;
+            color: #ffffff;
+            background: var(--primary);
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            place-items: center;
+            font-weight: 900;
+        }
+
+        .avatar:first-child {
+            margin-left: 0;
+            background: var(--accent);
+        }
+
+        .balance-card {
+            margin-top: 28px;
+            padding: 22px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #102a68, #1157ff);
+            border-radius: 28px;
+            box-shadow: 0 22px 48px rgba(17, 87, 255, 0.28);
+        }
+
+        .balance-card small,
+        .receipt small,
+        .status-pill {
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .balance-card strong {
+            display: block;
+            margin-top: 12px;
+            font-size: 2.8rem;
+            line-height: 1;
+            letter-spacing: -0.06em;
+        }
+
+        .send-panel,
+        .receipt,
+        .mini-card {
+            padding: 18px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 14px 36px rgba(16, 32, 51, 0.08);
+        }
+
+        .send-panel {
+            margin-top: 20px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 14px 0 0;
+        }
+
+        .step {
+            padding: 10px;
+            color: var(--primary-dark);
+            background: var(--bg-soft);
+            border-radius: 14px;
+            font-size: 0.84rem;
+            font-weight: 900;
+            text-align: center;
+        }
+
+        .receipt {
+            margin-top: 16px;
+        }
+
+        .status-pill {
+            padding: 6px 10px;
+            color: #08624f;
+            background: #dffbf2;
+            border-radius: 999px;
+            font-size: 0.72rem;
+        }
+
+        .section-head {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.65fr);
+            gap: 28px;
+            align-items: end;
+            margin-bottom: 34px;
+        }
+
+        .section-head p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            padding: 26px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            box-shadow: 0 18px 44px rgba(16, 32, 51, 0.07);
+        }
+
+        .card p {
+            margin: 12px 0 0;
+            color: var(--muted);
+        }
+
+        .icon {
+            display: grid;
+            width: 46px;
+            height: 46px;
+            margin-bottom: 18px;
+            color: #ffffff;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 16px;
+            place-items: center;
+            font-weight: 900;
+        }
+
+        .feature-list,
+        .check-list {
+            display: grid;
+            gap: 12px;
+            margin: 18px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .feature-list li,
+        .check-list li {
+            position: relative;
+            padding-left: 28px;
+            color: var(--muted);
+        }
+
+        .feature-list li::before,
+        .check-list li::before {
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            content: "\2713";
+            font-weight: 900;
+        }
+
+        .flow {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .flow-step {
+            position: relative;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+        }
+
+        .flow-step strong {
+            display: inline-grid;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 24px;
+            color: #ffffff;
+            background: var(--primary);
+            border-radius: 50%;
+            place-items: center;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+            gap: 28px;
+            align-items: start;
+        }
+
+        .panel {
+            padding: 34px;
+            background: #071121;
+            border-radius: 34px;
+            box-shadow: var(--shadow);
+            color: #ffffff;
+        }
+
+        .panel p,
+        .panel li {
+            color: #c2d0e2;
+        }
+
+        .ledger {
+            display: grid;
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .ledger-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px;
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+        }
+
+        .calculator {
+            display: grid;
+            gap: 14px;
+            padding: 26px;
+            background: #ffffff;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        label {
+            display: grid;
+            gap: 8px;
+            color: var(--ink);
+            font-weight: 800;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 13px 14px;
+            color: var(--ink);
+            background: #ffffff;
+            border: 1px solid #cbd6e8;
+            border-radius: 14px;
+            font: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus,
+        a:focus {
+            outline: 3px solid rgba(17, 87, 255, 0.22);
+            outline-offset: 3px;
+        }
+
+        .summary-box {
+            display: grid;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 18px;
+            background: var(--bg-soft);
+            border-radius: 20px;
+        }
+
+        .summary-box div {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+        }
+
+        .cta {
+            width: min(1180px, calc(100% - 32px));
+            margin-bottom: 80px;
+            padding: 54px;
+            color: #ffffff;
+            background:
+                radial-gradient(circle at 20% 0%, rgba(0, 184, 148, 0.38), transparent 32%),
+                linear-gradient(135deg, #071121, #102a68);
+            border-radius: 38px;
+            box-shadow: var(--shadow);
+        }
+
+        .cta p {
+            max-width: 720px;
+            color: #d6e1f0;
+        }
+
+        footer {
+            padding: 36px 16px;
+            color: #c2d0e2;
+            background: #071121;
+            text-align: center;
+        }
+
+        footer a {
+            color: #ffffff;
+        }
+
+        @media (max-width: 960px) {
+            .nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .hero,
+            .section-head,
+            .split {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 54px;
+            }
+
+            .grid,
+            .flow {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            section {
+                padding: 56px 0;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .proof-row,
+            .grid,
+            .flow,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .phone {
+                min-height: auto;
+            }
+
+            .cta {
+                padding: 32px 22px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+            }
+        }
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
     <header>
-        <h2>Krishna Mobiles FZCO</h2>
-        <p>Established 2021 by Kundan Yadav | 7 WA-3002, Dubai Airport Freezone</p>
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="#home" aria-label="AtlasPay home">
+                <span class="brand-mark">A</span>
+                <span>AtlasPay</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#users">Users</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#controls">Controls</a></li>
+                <li><a href="#compliance">Compliance</a></li>
+                <li><a href="#demo">Fees</a></li>
+            </ul>
+            <a class="button secondary" href="#contact">Request pilot</a>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <section id="home" class="hero">
-        <h1>Unlock Premium Refurbished Mobiles Worldwide – Sustainable, Reliable, Affordable</h1>
-    </section>
-    <section id="about">
-        <h2>About Krishna Mobiles</h2>
-        <p>Founded in 2021 by visionary entrepreneur Kundan Yadav, Krishna Mobiles is Dubai's premier destination for certified refurbished and pre-owned smartphones. From our strategic base in Dubai Airport Freezone (DAFZA), we export to over 50 countries, offering Apple, Samsung, and more with full warranties, eco-friendly practices, and unbeatable prices. We're not just sellers—we're your global partner in sustainable tech, reducing e-waste while delivering like-new quality.</p>
-        <ul>
-            <li>Global Shipping: Fast, secure delivery worldwide.</li>
-            <li>Certified Quality: Every device rigorously tested and graded.</li>
-            <li>Trustworthy: 100% Guarantee, Huge Savings, Expert Support.</li>
-        </ul>
-    </section>
-    <section id="products">
-        <h2>Our Premium Products</h2>
-        <div class="products">
-            <div class="product-card">
-                <img src="https://via.placeholder.com/250?text=Apple+iPhone+15+Pro+Max" alt="Refurbished Apple iPhone 15 Pro Max - Krishna Mobiles Dubai">
-                <h3>Apple iPhone 15 Pro Max</h3>
-                <p>Certified pre-owned, 1-year warranty, worldwide specs. Starting at $799.</p>
+
+    <main id="main">
+        <section id="home" class="hero" aria-labelledby="hero-title">
+            <div>
+                <span class="eyebrow">PayPal-class payout operations</span>
+                <h1 id="hero-title">Move money globally with speed users feel and controls finance teams trust.</h1>
+                <p class="lead">AtlasPay is a product blueprint for consumer, freelancer, and business payouts where every send flow is simple, every fee is visible, and every critical payment action is protected by ledger-grade safeguards.</p>
+                <div class="hero-actions">
+                    <a class="button" href="#demo">Estimate a payout</a>
+                    <a class="button secondary" href="#controls">Review safeguards</a>
+                </div>
+                <div class="proof-row" aria-label="Key product promises">
+                    <div class="proof"><strong>3 taps</strong><span>send money flow</span></div>
+                    <div class="proof"><strong>24/7</strong><span>status visibility</span></div>
+                    <div class="proof"><strong>AA</strong><span>accessibility baseline</span></div>
+                </div>
             </div>
-            <div class="product-card">
-                <img src="https://via.placeholder.com/250?text=Samsung+Galaxy+S24" alt="Refurbished Samsung Galaxy S24 - Krishna Mobiles UAE">
-                <h3>Samsung Galaxy S24</h3>
-                <p>Graded A+, eco-friendly refurb, bulk wholesale available.</p>
+            <div class="phone-shell" aria-label="Mobile payout app preview">
+                <div class="phone">
+                    <div class="phone-top">
+                        <strong>Wallet</strong>
+                        <span class="status-pill">Protected</span>
+                    </div>
+                    <div class="balance-card">
+                        <small>Available balance</small>
+                        <strong>$18,420.00</strong>
+                        <div class="phone-row">
+                            <span>USD wallet</span>
+                            <span>MFA on</span>
+                        </div>
+                    </div>
+                    <div class="send-panel">
+                        <div class="phone-row">
+                            <strong>Send to Maria</strong>
+                            <div class="avatar-group" aria-hidden="true">
+                                <span class="avatar">M</span>
+                                <span class="avatar">B</span>
+                            </div>
+                        </div>
+                        <div class="steps" aria-label="Three-tap payout flow">
+                            <span class="step">1. Choose</span>
+                            <span class="step">2. Review</span>
+                            <span class="step">3. Send</span>
+                        </div>
+                    </div>
+                    <div class="receipt">
+                        <div class="receipt-row">
+                            <small>Before you confirm</small>
+                            <span class="status-pill">No surprises</span>
+                        </div>
+                        <div class="summary-box">
+                            <div><span>Recipient gets</span><strong>$495.12</strong></div>
+                            <div><span>Fee</span><strong>$4.88</strong></div>
+                            <div><span>ETA</span><strong>Today</strong></div>
+                        </div>
+                    </div>
+                    <div class="mini-card" style="margin-top: 16px;">
+                        <strong>Next step</strong>
+                        <p style="margin: 8px 0 0; color: var(--muted);">Receipt, tracking link, support path, and dispute options are ready immediately.</p>
+                    </div>
+                </div>
             </div>
-            <!-- Add more cards as needed -->
-        </div>
-    </section>
-    <section id="testimonials">
-        <h2>What Our Customers Say</h2>
-        <div class="testimonial"> "Krishna Mobiles transformed our inventory—fast shipping to India, top quality!" – Raj, Wholesaler </div>
-        <div class="testimonial"> "Reliable partner for Africa markets. Sustainable and affordable." – Aisha, Retailer </div>
-    </section>
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <p>Or chat via WhatsApp: <a href="https://wa.me/+971XXXXXXXX">+971-XXXX-XXXX</a></p>
-    </section>
+        </section>
+
+        <section id="users" aria-labelledby="users-title">
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Product outcomes</span>
+                    <h2 id="users-title">Simple enough for first-time users. Powerful enough for global teams.</h2>
+                </div>
+                <p>Each workflow exposes trust cues at the point of decision: identity status, exact fees, ETA, receipt, cancellation window, and support path.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <span class="icon">C</span>
+                    <h3>Consumers</h3>
+                    <p>Sign up, complete KYC, link funding sources, send, receive, request, refund, and dispute money in plain language.</p>
+                </article>
+                <article class="card">
+                    <span class="icon">F</span>
+                    <h3>Freelancers</h3>
+                    <p>Receive cross-border payouts, export transaction history, track tax-friendly receipts, and keep clients informed.</p>
+                </article>
+                <article class="card">
+                    <span class="icon">B</span>
+                    <h3>Businesses</h3>
+                    <p>Run single and batch payouts with approvals, limits, status tracking, exports, and operational reconciliation.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="platform" aria-labelledby="platform-title">
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Non-negotiable capabilities</span>
+                    <h2 id="platform-title">Every money movement feature has a product surface and a control surface.</h2>
+                </div>
+                <p>The app is designed as vertical slices: auth, wallet, transfer, ledger, reconciliation, risk, and support.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <span class="icon">1</span>
+                    <h3>Secure access</h3>
+                    <ul class="feature-list">
+                        <li>MFA, device trust, and session controls.</li>
+                        <li>Step-up verification for risky actions.</li>
+                        <li>Accessible onboarding and KYC guidance.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <span class="icon">2</span>
+                    <h3>Wallet and funding</h3>
+                    <ul class="feature-list">
+                        <li>Stored value wallets where licensed.</li>
+                        <li>Tokenized bank and card connections.</li>
+                        <li>Pre-confirmation fee and ETA preview.</li>
+                    </ul>
+                </article>
+                <article class="card">
+                    <span class="icon">3</span>
+                    <h3>Payout operations</h3>
+                    <ul class="feature-list">
+                        <li>Single, request, receive, and batch payout flows.</li>
+                        <li>Live status, notifications, and exports.</li>
+                        <li>Refunds, disputes, receipts, and support trails.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section aria-labelledby="flow-title">
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">3 taps to send</span>
+                    <h2 id="flow-title">The happy path is short. The guardrails are always on.</h2>
+                </div>
+                <p>Progressive disclosure keeps the core flow calm while advanced controls remain available for limits, purpose codes, funding source changes, and recipient details.</p>
+            </div>
+            <div class="flow">
+                <article class="flow-step">
+                    <strong>1</strong>
+                    <h3>Choose recipient</h3>
+                    <p>Saved contacts, verified businesses, and clear identity confidence signals.</p>
+                </article>
+                <article class="flow-step">
+                    <strong>2</strong>
+                    <h3>Enter amount</h3>
+                    <p>Limits, currency, delivery speed, and funding options are checked instantly.</p>
+                </article>
+                <article class="flow-step">
+                    <strong>3</strong>
+                    <h3>Review terms</h3>
+                    <p>Fees, FX, ETA, protection, and cancellation rules appear before confirmation.</p>
+                </article>
+                <article class="flow-step">
+                    <strong>4</strong>
+                    <h3>Track payout</h3>
+                    <p>Receipt, payment status, support, refund, and dispute actions stay attached.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="controls" class="split" aria-labelledby="controls-title">
+            <div>
+                <span class="eyebrow">Financial integrity</span>
+                <h2 id="controls-title">Ledger-first architecture for money movement that cannot guess.</h2>
+                <p class="lead">Critical payment intents use idempotency keys, double-entry ledger events, immutable audit trails, and reconciliation from internal ledger to processor and bank settlement.</p>
+                <ul class="check-list">
+                    <li>Exactly-once semantics for payment intent transitions.</li>
+                    <li>Fraud scoring, velocity limits, configurable rules, and manual review.</li>
+                    <li>KYC, KYB, sanctions screening, AML monitoring, and regional policy gates.</li>
+                    <li>Traces, metrics, logs, anomaly alerts, backups, runbooks, and rollback plans.</li>
+                </ul>
+            </div>
+            <div class="panel" aria-label="Ledger event example">
+                <span class="eyebrow" style="color: #b7ffe9; background: rgba(0,184,148,0.14); border-color: rgba(0,184,148,0.36);">Double-entry example</span>
+                <div class="ledger">
+                    <div class="ledger-row"><span>Debit user wallet</span><strong>-$500.00</strong></div>
+                    <div class="ledger-row"><span>Credit payout clearing</span><strong>+$500.00</strong></div>
+                    <div class="ledger-row"><span>Debit payout clearing</span><strong>-$495.12</strong></div>
+                    <div class="ledger-row"><span>Credit recipient settlement</span><strong>+$495.12</strong></div>
+                    <div class="ledger-row"><span>Credit fee revenue</span><strong>+$4.88</strong></div>
+                </div>
+                <p>Ledger entries are append-only and reconcile against processor status and bank settlement files.</p>
+            </div>
+        </section>
+
+        <section id="compliance" aria-labelledby="compliance-title">
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Compliance by design</span>
+                    <h2 id="compliance-title">Trust is visible in the interface and enforceable in the platform.</h2>
+                </div>
+                <p>Legal, privacy, and licensing constraints are treated as product requirements, not cleanup work after launch.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <span class="icon">P</span>
+                    <h3>PCI scope minimization</h3>
+                    <p>Tokenize card data through PSPs wherever possible and keep sensitive payment data out of core app systems.</p>
+                </article>
+                <article class="card">
+                    <span class="icon">S</span>
+                    <h3>SOC 2 control posture</h3>
+                    <p>Access review, change control, audit logs, incident response, backup evidence, and vendor risk are built into operating rituals.</p>
+                </article>
+                <article class="card">
+                    <span class="icon">G</span>
+                    <h3>Privacy and retention</h3>
+                    <p>GDPR and CCPA data rights, retention policies, consent, localization, and regional money movement constraints are documented.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="demo" class="split" aria-labelledby="demo-title">
+            <div>
+                <span class="eyebrow">Fee transparency demo</span>
+                <h2 id="demo-title">Show the cost before users commit.</h2>
+                <p class="lead">This lightweight estimator demonstrates the UX principle: users see recipient amount, fee, delivery speed, and next action before confirmation.</p>
+            </div>
+            <form class="calculator" id="feeCalculator">
+                <label>
+                    Amount to send
+                    <input id="amount" name="amount" type="number" min="1" step="0.01" value="500" aria-describedby="fee-help">
+                </label>
+                <label>
+                    Destination
+                    <select id="destination" name="destination">
+                        <option value="domestic">Domestic bank</option>
+                        <option value="international">International bank</option>
+                        <option value="instant">Instant card payout</option>
+                    </select>
+                </label>
+                <p id="fee-help" style="margin: 0; color: var(--muted);">Sample pricing only. Production fees require processor contracts and regulatory review.</p>
+                <div class="summary-box" aria-live="polite">
+                    <div><span>Estimated fee</span><strong id="fee">$4.88</strong></div>
+                    <div><span>Recipient gets</span><strong id="recipient">$495.12</strong></div>
+                    <div><span>ETA</span><strong id="eta">Today</strong></div>
+                </div>
+                <button class="button" type="submit">Confirm demo payout</button>
+            </form>
+        </section>
+
+        <section aria-labelledby="done-title">
+            <div class="section-head">
+                <div>
+                    <span class="eyebrow">Definition of done</span>
+                    <h2 id="done-title">A feature ships only when product, safety, and operations all agree.</h2>
+                </div>
+                <p>Every release is testable, observable, recoverable, and understandable to users.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <span class="icon">T</span>
+                    <h3>Test evidence</h3>
+                    <p>Unit, integration, end-to-end, contract, load, and failure drills cover the full payout path.</p>
+                </article>
+                <article class="card">
+                    <span class="icon">R</span>
+                    <h3>Release control</h3>
+                    <p>Feature flags, canaries, monitoring dashboards, alerts, rollback, and runbooks are ready before rollout.</p>
+                </article>
+                <article class="card">
+                    <span class="icon">U</span>
+                    <h3>Usability review</h3>
+                    <p>Copy, accessibility, confirmation states, error recovery, and next-step guidance are reviewed together.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="cta" aria-labelledby="contact-title">
+            <span class="eyebrow" style="color: #b7ffe9; background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.24);">Next highest-impact step</span>
+            <h2 id="contact-title">Start with the auth to wallet to transfer vertical slice.</h2>
+            <p>Define assumptions, produce PRD and acceptance criteria, implement the first guarded money movement path, and prove it with test evidence before expanding to batch payouts, reconciliation, and risk operations.</p>
+            <div class="cta-actions">
+                <a class="button" href="mailto:pilot@atlaspay.example">Request product workshop</a>
+                <a class="button secondary" href="#platform">See platform scope</a>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2025 Krishna Mobiles FZCO. All rights reserved. | SEO-Optimized for Global Reach</p>
+        <p>&copy; 2026 AtlasPay concept. Built for speed, trust, privacy, accessibility, and financial integrity.</p>
+        <p>This demo is a static product concept and does not process real payments.</p>
     </footer>
+
     <script>
-        // Simple JS for Interactivity & Traffic Strategy (e.g., Form Submit Alert, Fade-In Testimonials)
         document.addEventListener('DOMContentLoaded', () => {
-            const testimonials = document.querySelectorAll('.testimonial');
-            testimonials.forEach((el, i) => setTimeout(() => el.classList.add('show'), i * 500));
-            
-            document.getElementById('contactForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert('Message Sent! Our team will respond within 24 hours.');
-                // In production, integrate with EmailJS or backend for real submissions
+            const calculator = document.getElementById('feeCalculator');
+            const amountInput = document.getElementById('amount');
+            const destinationInput = document.getElementById('destination');
+            const feeOutput = document.getElementById('fee');
+            const recipientOutput = document.getElementById('recipient');
+            const etaOutput = document.getElementById('eta');
+
+            const currency = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            });
+
+            const options = {
+                domestic: { rate: 0.0095, fixed: 0.25, eta: 'Today' },
+                international: { rate: 0.018, fixed: 2.5, eta: '1-2 days' },
+                instant: { rate: 0.022, fixed: 0.75, eta: 'Minutes' }
+            };
+
+            function updateEstimate() {
+                const amount = Math.max(Number(amountInput.value) || 0, 0);
+                const selected = options[destinationInput.value];
+                const fee = Math.min(amount, amount * selected.rate + selected.fixed);
+                const recipientAmount = Math.max(amount - fee, 0);
+
+                feeOutput.textContent = currency.format(fee);
+                recipientOutput.textContent = currency.format(recipientAmount);
+                etaOutput.textContent = selected.eta;
+            }
+
+            amountInput.addEventListener('input', updateEstimate);
+            destinationInput.addEventListener('change', updateEstimate);
+            updateEstimate();
+
+            calculator.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Demo payout confirmed. In production, this step would create an idempotent payment intent for review and ledger posting.');
             });
         });
     </script>
