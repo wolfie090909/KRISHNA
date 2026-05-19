@@ -1,6 +1,6 @@
 # Agent Prompt: Build a Billion-Dollar Payout App
 
-> Drop this prompt into the **system / developer message** of a strong coding agent (Cursor, Claude, GPT-5, Devin, etc.). Replace anything in `{{double braces}}` with your specifics before running.
+> Drop this prompt into the **system / developer message** of a strong coding agent (Cursor, Claude, GPT-5, Devin, etc.). It is self-contained — no placeholders to fill in. Tune the stack defaults in §7 to your team if needed, then start.
 
 ---
 
