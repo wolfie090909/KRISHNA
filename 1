@@ -543,6 +543,20 @@
             gap: 14px;
         }
 
+        .demo-submit-status {
+            margin: 0;
+            padding: 14px 16px;
+            color: var(--primary-dark);
+            background: #e9efff;
+            border: 1px solid #cbd8ff;
+            border-radius: 16px;
+            font-weight: 700;
+        }
+
+        .demo-submit-status[hidden] {
+            display: none;
+        }
+
         .cta {
             width: min(1180px, calc(100% - 32px));
             margin-bottom: 80px;
@@ -704,8 +718,8 @@
                             <span class="status-pill">No surprises</span>
                         </div>
                         <div class="summary-box">
-                            <div><span>Recipient gets</span><strong>$495.12</strong></div>
-                            <div><span>Fee</span><strong>$4.88</strong></div>
+                            <div><span>Recipient gets</span><strong>$495.00</strong></div>
+                            <div><span>Fee</span><strong>$5.00</strong></div>
                             <div><span>ETA</span><strong>Today</strong></div>
                         </div>
                     </div>
@@ -832,9 +846,9 @@
                 <div class="ledger">
                     <div class="ledger-row"><span>Debit user wallet</span><strong>-$500.00</strong></div>
                     <div class="ledger-row"><span>Credit payout clearing</span><strong>+$500.00</strong></div>
-                    <div class="ledger-row"><span>Debit payout clearing</span><strong>-$495.12</strong></div>
-                    <div class="ledger-row"><span>Credit recipient settlement</span><strong>+$495.12</strong></div>
-                    <div class="ledger-row"><span>Credit fee revenue</span><strong>+$4.88</strong></div>
+                    <div class="ledger-row"><span>Debit payout clearing</span><strong>-$495.00</strong></div>
+                    <div class="ledger-row"><span>Credit recipient settlement</span><strong>+$495.00</strong></div>
+                    <div class="ledger-row"><span>Credit fee revenue</span><strong>+$5.00</strong></div>
                 </div>
                 <p>Ledger entries are append-only and reconcile against processor status and bank settlement files.</p>
             </div>
@@ -886,13 +900,14 @@
                         <option value="instant">Instant card payout</option>
                     </select>
                 </label>
-                <p id="fee-help" style="margin: 0; color: var(--muted);">Sample pricing only. Production fees require processor contracts and regulatory review.</p>
+                <p id="fee-help" style="margin: 0; color: var(--muted);">Sample pricing only. Production fees require processor contracts and regulatory review. Estimates use whole-cent math in JavaScript (no floating-point currency).</p>
                 <div class="summary-box" aria-live="polite">
-                    <div><span>Estimated fee</span><strong id="fee">$4.88</strong></div>
-                    <div><span>Recipient gets</span><strong id="recipient">$495.12</strong></div>
+                    <div><span>Estimated fee</span><strong id="fee">$5.00</strong></div>
+                    <div><span>Recipient gets</span><strong id="recipient">$495.00</strong></div>
                     <div><span>ETA</span><strong id="eta">Today</strong></div>
                 </div>
                 <button class="button" type="submit">Confirm demo payout</button>
+                <p id="demoSubmitStatus" class="demo-submit-status" role="status" aria-live="polite" hidden></p>
             </form>
         </section>
 
@@ -947,26 +962,70 @@
             const feeOutput = document.getElementById('fee');
             const recipientOutput = document.getElementById('recipient');
             const etaOutput = document.getElementById('eta');
+            const submitStatus = document.getElementById('demoSubmitStatus');
 
             const currency = new Intl.NumberFormat('en-US', {
                 style: 'currency',
                 currency: 'USD'
             });
 
+            /**
+             * Fee curve parameters in integer minor units (USD cents) and rational rate.
+             * Percent fee uses ceil on the fractional cent so we never undercharge in the demo model.
+             */
             const options = {
-                domestic: { rate: 0.0095, fixed: 0.25, eta: 'Today' },
-                international: { rate: 0.018, fixed: 2.5, eta: '1-2 days' },
-                instant: { rate: 0.022, fixed: 0.75, eta: 'Minutes' }
+                domestic: { rateNum: 95, rateDen: 10000, fixedCents: 25, eta: 'Today' },
+                international: { rateNum: 18, rateDen: 1000, fixedCents: 250, eta: '1-2 days' },
+                instant: { rateNum: 22, rateDen: 1000, fixedCents: 75, eta: 'Minutes' }
             };
 
-            function updateEstimate() {
-                const amount = Math.max(Number(amountInput.value) || 0, 0);
-                const selected = options[destinationInput.value];
-                const fee = Math.min(amount, amount * selected.rate + selected.fixed);
-                const recipientAmount = Math.max(amount - fee, 0);
+            function parseAmountToCents(raw) {
+                const s = String(raw ?? '').trim().replace(/^\$/, '');
+                if (!s) {
+                    return 0;
+                }
+                if (!/^\d+(\.\d{0,2})?$/.test(s)) {
+                    return NaN;
+                }
+                const [whole, frac = ''] = s.split('.');
+                const centsPart = (frac + '00').slice(0, 2);
+                const dollars = Number.parseInt(whole, 10);
+                const minor = Number.parseInt(centsPart, 10);
+                if (!Number.isFinite(dollars) || !Number.isFinite(minor)) {
+                    return NaN;
+                }
+                return dollars * 100 + minor;
+            }
 
-                feeOutput.textContent = currency.format(fee);
-                recipientOutput.textContent = currency.format(recipientAmount);
+            function ceilDiv(n, d) {
+                if (d <= 0) {
+                    return 0;
+                }
+                return Math.floor((n + d - 1) / d);
+            }
+
+            function formatUsdFromCents(cents) {
+                const safe = Math.max(0, Math.min(cents, 9_999_999_999));
+                return currency.format(safe / 100);
+            }
+
+            function updateEstimate() {
+                const amountCents = parseAmountToCents(amountInput.value);
+                if (!Number.isFinite(amountCents) || amountCents < 0) {
+                    feeOutput.textContent = '—';
+                    recipientOutput.textContent = '—';
+                    etaOutput.textContent = '—';
+                    return;
+                }
+
+                const selected = options[destinationInput.value];
+                const variableFeeCents = ceilDiv(amountCents * selected.rateNum, selected.rateDen);
+                const feeBeforeCapCents = variableFeeCents + selected.fixedCents;
+                const feeCents = Math.min(amountCents, feeBeforeCapCents);
+                const recipientCents = amountCents - feeCents;
+
+                feeOutput.textContent = formatUsdFromCents(feeCents);
+                recipientOutput.textContent = formatUsdFromCents(recipientCents);
                 etaOutput.textContent = selected.eta;
             }
 
@@ -976,7 +1035,16 @@
 
             calculator.addEventListener('submit', (event) => {
                 event.preventDefault();
-                alert('Demo payout confirmed. In production, this step would create an idempotent payment intent for review and ledger posting.');
+                const amountCents = parseAmountToCents(amountInput.value);
+                if (!Number.isFinite(amountCents) || amountCents <= 0) {
+                    submitStatus.hidden = false;
+                    submitStatus.textContent = 'Enter a valid amount in dollars, up to two decimal places, then try again.';
+                    return;
+                }
+
+                submitStatus.hidden = false;
+                submitStatus.textContent =
+                    'Demo only: no money moves. In production this would open review, then create an idempotent payment intent, post ledger entries, and return a receipt.';
             });
         });
     </script>
